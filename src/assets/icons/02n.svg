@@ -1,0 +1,23 @@
+<svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="moon02n" cx="40%" cy="30%" r="50%">
+            <stop offset="0%" style="stop-color:#E2E8F0;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#94A3B8;stop-opacity:1" />
+        </radialGradient>
+        <linearGradient id="nightCloud02n" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#CBD5E1;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#94A3B8;stop-opacity:1" />
+        </linearGradient>
+        <filter id="nightCloudShadow02n">
+            <feDropShadow dx="2" dy="3" stdDeviation="2" flood-color="#475569" flood-opacity="0.4"/>
+        </filter>
+    </defs>
+    <circle cx="20" cy="20" r="1" fill="#FFF" opacity="0.7" />
+    <circle cx="80" cy="25" r="1.2" fill="#FFF" opacity="0.8" />
+    <circle cx="30" cy="30" r="12" fill="url(#moon02n)" />
+    <circle cx="27" cy="28" r="1.5" fill="#94A3B8" opacity="0.4" />
+    <ellipse cx="60" cy="60" rx="18" ry="12" fill="url(#nightCloud02n)" filter="url(#nightCloudShadow02n)" />
+    <circle cx="50" cy="55" r="8" fill="url(#nightCloud02n)" />
+    <circle cx="70" cy="55" r="10" fill="url(#nightCloud02n)" />
+    <circle cx="60" cy="50" r="7" fill="url(#nightCloud02n)" />
+</svg>

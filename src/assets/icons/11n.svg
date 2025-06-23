@@ -1,0 +1,23 @@
+<svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="stormClouds11n" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#334155;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1E293B;stop-opacity:1" />
+        </linearGradient>
+        <filter id="stormShadow11n">
+            <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.8"/>
+        </filter>
+    </defs>
+    <circle cx="15" cy="15" r="3" fill="#E2E8F0" opacity="0.3" />
+    <ellipse cx="50" cy="32" rx="25" ry="16" fill="url(#stormClouds11n)" filter="url(#stormShadow11n)" />
+    <circle cx="30" cy="28" r="12" fill="url(#stormClouds11n)" />
+    <circle cx="70" cy="28" r="14" fill="url(#stormClouds11n)" />
+    <circle cx="50" cy="22" r="10" fill="url(#stormClouds11n)" />
+    <path d="M52 50 L48 62 L54 62 L46 78 L58 65 L52 65 Z" fill="#FEF08A" stroke="#EAB308" stroke-width="1" />
+    <g stroke="#1E40AF" stroke-width="2" stroke-linecap="round" opacity="0.8">
+        <line x1="35" y1="50" x2="32" y2="68" />
+        <line x1="65" y1="52" x2="62" y2="70" />
+        <line x1="42" y1="55" x2="39" y2="73" />
+        <line x1="58" y1="54" x2="55" y2="72" />
+    </g>
+</svg>

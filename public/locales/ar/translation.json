@@ -1,0 +1,29 @@
+{
+    "logo": "الطقس",
+    "title": "توقعات الطقس",
+    "location": "الموقع",
+    "temperature": "درجة الحرارة",
+    "feels_like": "تشعر كأنها",
+    "humidity": "الرطوبة",
+    "wind": "الرياح",
+    "sunrise": "شروق الشمس",
+    "sunset": "غروب الشمس",
+    "date": "التاريخ",
+    "change_language": "تغيير اللغة",
+
+    "clear sky": "سماء صافية",
+    "few clouds": "غيوم قليلة",
+    "scattered clouds": "غيوم متفرقة",
+    "broken clouds": "غيوم متقطعة",
+    "shower rain": "زخات مطر",
+    "rain": "مطر",
+    "thunderstorm": "عاصفة رعدية",
+    "snow": "ثلوج",
+    "mist": "ضباب",
+
+    "units": {
+        "temp": "°م",
+        "wind_speed": "كم/س",
+        "humidity": "٪"
+    }
+}

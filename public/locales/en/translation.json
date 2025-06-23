@@ -1,0 +1,29 @@
+{
+    "logo": "WEATHER",
+    "title": "Weather Forecast",
+    "location": "Location",
+    "temperature": "Temperature",
+    "feels_like": "Feels like",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "date": "Date",
+    "change_language": "Change Language",
+
+    "clear sky": "Clear sky",
+    "few clouds": "Few clouds",
+    "scattered clouds": "Scattered clouds",
+    "broken clouds": "Broken clouds",
+    "shower rain": "Shower rain",
+    "rain": "Rain",
+    "thunderstorm": "Thunderstorm",
+    "snow": "Snow",
+    "mist": "Mist",
+
+    "units": {
+        "temp": "°C",
+        "wind_speed": "km/h",
+        "humidity": "%"
+    }
+}
