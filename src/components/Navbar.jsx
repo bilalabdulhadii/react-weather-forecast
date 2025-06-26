@@ -1,8 +1,9 @@
 import { useTheme } from "@emotion/react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import Logo from "../assets/logo.png";
-
+import LogoBlue from "../assets/logo_blue.png";
+import LogoWhite from "../assets/logo_white.png";
+import { useEffect, useState } from "react";
 import {
     AppBar,
     Toolbar,
@@ -12,7 +13,6 @@ import {
     IconButton,
     Avatar,
 } from "@mui/material";
-
 import { useTranslation } from "react-i18next";
 import { useLang } from "../contexts/LangContext";
 
@@ -20,6 +20,17 @@ export default function Navbar({ setThemeMode }) {
     const theme = useTheme();
     const { lang, setLang } = useLang();
     const { t } = useTranslation();
+
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 10);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <Box
@@ -33,10 +44,12 @@ export default function Navbar({ setThemeMode }) {
         >
             <AppBar
                 position="static"
-                elevation={0}
+                elevation={scrolled ? 4 : 0}
                 sx={{
-                    backgroundColor: "transparent",
-                    boxShadow: "none",
+                    backgroundColor: scrolled ? "#2196F333" : "transparent",
+                    backdropFilter: scrolled ? "blur(10px)" : "none",
+                    transition: "all 0.3s ease-in-out",
+                    boxShadow: scrolled ? theme.shadows[2] : "none",
                 }}
             >
                 <Toolbar>
@@ -50,7 +63,7 @@ export default function Navbar({ setThemeMode }) {
                     >
                         <Avatar
                             alt="Logo"
-                            src={Logo}
+                            src={LogoBlue}
                             sx={{ width: 32, height: 32 }}
                         />
                         <Typography
@@ -73,6 +86,7 @@ export default function Navbar({ setThemeMode }) {
                             variant="text"
                             sx={{
                                 width: "fit-content",
+                                color: (theme) => theme.palette.primary.main,
                             }}
                             onClick={() => {
                                 setLang();

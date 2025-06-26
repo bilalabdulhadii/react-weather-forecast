@@ -54,6 +54,7 @@ export default function HourlyTimelineWeatherCard() {
                 "&::-webkit-scrollbar": { display: "none" },
                 scrollbarWidth: "none",
                 userSelect: "none",
+                padding: "5px 0"
             }}
         >
             {hoursList}

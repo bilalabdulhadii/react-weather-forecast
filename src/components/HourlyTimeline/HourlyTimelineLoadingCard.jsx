@@ -44,6 +44,7 @@ export default function HourlyTimelineLoadingCard() {
                 scrollbarWidth: "none",
                 userSelect: "none",
                 minHeight: "240px",
+                padding: "5px 0",
             }}
         >
             <OneHourLoadingCard />

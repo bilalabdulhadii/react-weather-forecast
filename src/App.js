@@ -182,7 +182,7 @@ function App() {
                             width: "100%",
                             display: "flex",
                             flexDirection: "column",
-                            marginTop: "50px",
+                            marginTop: "30px",
                             gap: 3,
                         }}
                     >

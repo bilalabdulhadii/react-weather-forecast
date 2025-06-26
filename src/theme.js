@@ -196,7 +196,6 @@ const commonSettings = {
     },
 };
 
-
 let lightTheme = createTheme({
     palette: {
         mode: "light",
