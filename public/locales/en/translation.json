@@ -23,7 +23,7 @@
 
     "units": {
         "temp": "°C",
-        "wind_speed": "km/h",
+        "wind_speed": "m/s",
         "humidity": "%"
     }
 }

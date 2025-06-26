@@ -1,17 +1,17 @@
 import { Paper, CircularProgress } from "@mui/material";
 
-export default function LoadingCard() {
+export default function CurrentLoadingCard() {
     return (
         <Paper
             elevation={2}
             sx={{
                 width: "100%",
                 padding: 2,
-                opacity: 1,
+                opacity: 0.5,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                minHeight: "300px",
+                minHeight: "400px",
             }}
         >
             <CircularProgress color="primary" size={40} />

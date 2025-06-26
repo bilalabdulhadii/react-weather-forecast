@@ -5,21 +5,21 @@ import { useTranslation } from "react-i18next";
 import { formatNumber, formatSunriseOrSunset } from "../../utils/format";
 import { useLang } from "../../contexts/LangContext";
 import { useMemo } from "react";
-import { useWeather } from "../../contexts/WeatherContext";
+import { useCurrentWeather } from "../../contexts/CurrentWeatherContext";
 
 export default function WeatherDetails() {
-    const {weather} = useWeather();
+    const { currentWeather } = useCurrentWeather();
     const { lang } = useLang();
     const { t } = useTranslation();
 
     const formattedSunrise = useMemo(
-        () => formatSunriseOrSunset(weather.sunriseRaw, lang),
-        [weather.sunriseRaw, lang]
+        () => formatSunriseOrSunset(currentWeather.sunriseRaw, lang),
+        [currentWeather.sunriseRaw, lang]
     );
 
     const formattedSunset = useMemo(
-        () => formatSunriseOrSunset(weather.sunsetRaw, lang),
-        [weather.sunsetRaw, lang]
+        () => formatSunriseOrSunset(currentWeather.sunsetRaw, lang),
+        [currentWeather.sunsetRaw, lang]
     );
 
     return (
@@ -37,7 +37,7 @@ export default function WeatherDetails() {
                             color: (theme) => theme.palette.secondary.main,
                         }}
                     />
-                    {formatNumber(weather.temp, lang) + t("units.temp")}
+                    {formatNumber(currentWeather.temp, lang) + t("units.temp")}
                 </Typography>
                 <Typography
                     variant="h4"
@@ -45,34 +45,51 @@ export default function WeatherDetails() {
                         justifySelf: "center",
                     }}
                 >
-                    {t(weather.description)}
+                    {t(currentWeather.description)}
                 </Typography>
             </Box>
 
-            <Box display="flex" flexDirection="column" alignItems="center">
+            <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                gap={1}
+            >
                 <ValueInfoRow
+                    icon="feels_like"
                     label={t("feels_like")}
                     value={
-                        formatNumber(weather.feels_like, lang) + t("units.temp")
+                        formatNumber(currentWeather.feels_like, lang) +
+                        t("units.temp")
                     }
                 />
                 <ValueInfoRow
+                    icon="humidity"
                     label={t("humidity")}
                     value={
-                        formatNumber(weather.humidity, lang) +
+                        formatNumber(currentWeather.humidity, lang) +
                         t("units.humidity")
                     }
                 />
                 <ValueInfoRow
+                    icon="wind"
                     label={t("wind")}
                     value={
-                        formatNumber(weather.wind, lang) +
+                        formatNumber(currentWeather.wind, lang) +
                         " " +
                         t("units.wind_speed")
                     }
                 />
-                <ValueInfoRow label={t("sunrise")} value={formattedSunrise} />
-                <ValueInfoRow label={t("sunset")} value={formattedSunset} />
+                <ValueInfoRow
+                    icon="sunrise"
+                    label={t("sunrise")}
+                    value={formattedSunrise}
+                />
+                <ValueInfoRow
+                    icon="sunset"
+                    label={t("sunset")}
+                    value={formattedSunset}
+                />
             </Box>
         </Stack>
     );

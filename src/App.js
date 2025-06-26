@@ -6,15 +6,20 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
 import "moment/locale/ar";
-import WeatherCard from "./components/CurrentWeatherCard/WeatherCard.jsx";
-import LoadingCard from "./components/CurrentWeatherCard/LoadingCard.jsx";
+import CurrentWeatherCard from "./components/CurrentWeatherCard/CurrentWeatherCard.jsx";
+import CurrentLoadingCard from "./components/CurrentWeatherCard/CurrentLoadingCard.jsx";
 import Navbar from "./components/Navbar.jsx";
 import { useTranslation } from "react-i18next";
 import { useLang } from "./contexts/LangContext.js";
-import { useWeather } from "./contexts/WeatherContext.js";
+import { useCurrentWeather } from "./contexts/CurrentWeatherContext.js";
+import HourlyTimelineWeatherCard from "./components/HourlyTimeline/HourlyTimelineWeatherCard.jsx";
+import { useNext5DaysWeather } from "./contexts/Next5DaysWeatherContext.js";
+import HourlyTimelineLoadingCard from "./components/HourlyTimeline/HourlyTimelineLoadingCard.jsx";
 
 function App() {
-    const { setWeather } = useWeather();
+    const { setCurrentWeather } = useCurrentWeather();
+    const { setNext5DaysWeather } = useNext5DaysWeather();
+
     const { lang } = useLang();
     const { i18n } = useTranslation();
     const [loading, setLoading] = useState(true);
@@ -47,7 +52,7 @@ function App() {
                 const { latitude, longitude, city, country_code } =
                     ipResult.data;
 
-                return axios
+                /* return axios
                     .get("https://api.openweathermap.org/data/2.5/weather", {
                         params: {
                             lat: latitude,
@@ -67,14 +72,76 @@ function App() {
                             temp: Math.round(data.main.temp),
                             feels_like: Math.round(data.main.feels_like),
                             humidity: data.main.humidity,
-                            wind: Math.round(data.wind.speed * 3.6),
+                            wind: Math.round(data.wind.speed),
                             description: data.weather[0].description,
                             icon: data.weather[0].icon,
                             sunriseRaw: data.sys.sunrise,
                             sunsetRaw: data.sys.sunset,
                         });
                         setLoading(false);
-                    });
+                    }); */
+
+                const currentWeather = axios.get(
+                    "https://api.openweathermap.org/data/2.5/weather",
+                    {
+                        params: {
+                            lat: latitude,
+                            lon: longitude,
+                            appid: process.env.REACT_APP_OPEN_WEATHER_API_KEY,
+                            units: "metric",
+                        },
+                        signal: controller.signal,
+                    }
+                );
+
+                const next5Days = axios.get(
+                    "https://api.openweathermap.org/data/2.5/forecast",
+                    {
+                        params: {
+                            lat: latitude,
+                            lon: longitude,
+                            appid: process.env.REACT_APP_OPEN_WEATHER_API_KEY,
+                            units: "metric",
+                        },
+                        signal: controller.signal,
+                    }
+                );
+
+                // Wait for both responses
+                return Promise.all([currentWeather, next5Days]).then(
+                    ([currentWeatherResult, next5DaysResult]) => {
+                        const weatherData = currentWeatherResult.data;
+                        const forecastData = next5DaysResult.data;
+
+                        setCurrentWeather({
+                            city: city || weatherData.name,
+                            country: country_code || weatherData.sys.country,
+                            dateRaw: moment.unix(weatherData.dt),
+                            temp: Math.round(weatherData.main.temp),
+                            feels_like: Math.round(weatherData.main.feels_like),
+                            humidity: weatherData.main.humidity,
+                            wind: Math.round(weatherData.wind.speed),
+                            description: weatherData.weather[0].description,
+                            icon: weatherData.weather[0].icon,
+                            sunriseRaw: weatherData.sys.sunrise,
+                            sunsetRaw: weatherData.sys.sunset,
+                        });
+                        setNext5DaysWeather(
+                            forecastData.list.map((item) => ({
+                                id: item.dt,
+                                dateRaw: item.dt,
+                                temp: Math.round(item.main.temp),
+                                feels_like: item.main.feels_like,
+                                humidity: item.main.humidity,
+                                wind: Math.round(item.wind.speed),
+                                description: item.weather[0].description,
+                                icon: item.weather[0].icon,
+                            }))
+                        );
+
+                        setLoading(false);
+                    }
+                );
             })
             .catch((err) => {
                 console.error("Error getting location or weather data:", err);
@@ -92,37 +159,42 @@ function App() {
             <Box
                 className="App"
                 sx={{
-                    height: "100vh",
+                    minHeight: "100vh",
                     background: (theme) => theme.palette.background.default,
                 }}
             >
-                <Container maxWidth="md" dir={lang === "en" ? "ltr" : "rtl"}>
+                <Container
+                    maxWidth="md"
+                    dir={lang === "en" ? "ltr" : "rtl"}
+                    sx={{
+                        minHeight: "100vh",
+                    }}
+                >
                     <Navbar
                         setThemeMode={(isDark) => {
                             setDarkMode(isDark);
                         }}
                     />
-                    <div
-                        style={{
+                    <Box
+                        sx={{
                             width: "100%",
                             display: "flex",
-                            justifyContent: "center",
+                            flexDirection: "column",
+                            marginTop: "50px",
+                            gap: 3,
                         }}
                     >
-                        <Box
-                            sx={{
-                                height: "calc(100vh - 84px)",
-                                width: "100%",
-                                maxWidth: "600px",
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "center",
-                                alignContent: "center",
-                            }}
-                        >
-                            {loading ? <LoadingCard /> : <WeatherCard />}
-                        </Box>
-                    </div>
+                        {loading ? (
+                            <CurrentLoadingCard />
+                        ) : (
+                            <CurrentWeatherCard />
+                        )}
+                        {loading ? (
+                            <HourlyTimelineLoadingCard />
+                        ) : (
+                            <HourlyTimelineWeatherCard />
+                        )}
+                    </Box>
                 </Container>
             </Box>
         </ThemeProvider>

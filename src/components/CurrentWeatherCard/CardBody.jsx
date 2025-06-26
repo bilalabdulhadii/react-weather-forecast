@@ -1,19 +1,19 @@
 import { Grid } from "@mui/material";
-import WeatherIcon from "../WeatherIcon";
+import CurrentWeatherIcon from "./CurrentWeatherIcon";
 import WeatherDetails from "./WeatherDetails";
-import { useWeather } from "../../contexts/WeatherContext";
+import { useCurrentWeather } from "../../contexts/CurrentWeatherContext";
 
 export default function CardBody() {
-    const { weather } = useWeather();
+    const { currentWeather } = useCurrentWeather();
     return (
         <Grid container spacing={1}>
             <Grid size={7}>
                 <WeatherDetails />
             </Grid>
             <Grid size={5}>
-                <WeatherIcon
-                    icon={weather.icon}
-                    description={weather.description}
+                <CurrentWeatherIcon
+                    icon={currentWeather.icon}
+                    description={currentWeather.description}
                 />
             </Grid>
         </Grid>

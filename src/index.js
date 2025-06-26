@@ -5,16 +5,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./i18n";
 import { LangProvider } from "./contexts/LangContext";
-import { WeatherProvider } from "./contexts/WeatherContext";
+import { CurrentWeatherProvider } from "./contexts/CurrentWeatherContext";
+import { Next5DaysWeatherProvider } from "./contexts/Next5DaysWeatherContext";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
     <React.StrictMode>
-        <WeatherProvider>
-            <LangProvider>
-                <App />
-            </LangProvider>
-        </WeatherProvider>
+        <CurrentWeatherProvider>
+            <Next5DaysWeatherProvider>
+                <LangProvider>
+                    <App />
+                </LangProvider>
+            </Next5DaysWeatherProvider>
+        </CurrentWeatherProvider>
     </React.StrictMode>
 );
 reportWebVitals();

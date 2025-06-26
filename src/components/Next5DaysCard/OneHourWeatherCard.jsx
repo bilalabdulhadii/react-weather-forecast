@@ -1,8 +1,8 @@
 import { Paper, Stack } from "@mui/material";
 import CardHeader from "./CardHeader";
-import CardBody from "./CardBody";
+import CardBody from "../CurrentWeatherCard/CardBody";
 
-export default function WeatherCard() {
+export default function OneDayCard({date}) {
     return (
         <Paper
             elevation={2}
@@ -13,7 +13,6 @@ export default function WeatherCard() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                minHeight: "300px",
             }}
         >
             <Stack
@@ -23,7 +22,7 @@ export default function WeatherCard() {
                 justifyContent="center"
                 alignContent="center"
             >
-                <CardHeader />
+                <CardHeader date={date}/>
                 <hr />
                 <CardBody />
             </Stack>

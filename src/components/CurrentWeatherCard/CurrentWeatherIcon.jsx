@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
-import iconMap from "../iconMap";
+import iconMap from "../../iconMap";
 
-export default function WeatherIcon({ icon, description }) {
+export default function CurrentWeatherIcon({ icon, description }) {
     return (
         <Box
             display="flex"
@@ -12,6 +12,7 @@ export default function WeatherIcon({ icon, description }) {
             <img
                 src={iconMap[icon || iconMap["01d"]]}
                 alt={description}
+                draggable={false}
                 style={{
                     width: "100%",
                     height: "auto",

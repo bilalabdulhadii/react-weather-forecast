@@ -5,15 +5,15 @@ import { localizedCountryName } from "../../utils/localizedCountryName";
 import { useLang } from "../../contexts/LangContext";
 import { useMemo } from "react";
 import { formatDate } from "../../utils/format";
-import { useWeather } from "../../contexts/WeatherContext";
+import { useCurrentWeather } from "../../contexts/CurrentWeatherContext";
 
 export default function CardHeader() {
-    const { weather } = useWeather();
+    const { currentWeather } = useCurrentWeather();
     const { lang } = useLang();
 
     const formattedDate = useMemo(
-        () => formatDate(weather.dateRaw, lang),
-        [weather.dateRaw, lang]
+        () => formatDate(currentWeather.dateRaw, lang),
+        [currentWeather.dateRaw, lang]
     );
 
     return (
@@ -25,7 +25,7 @@ export default function CardHeader() {
                         color: (theme) => theme.palette.primary.main,
                     }}
                 />
-                &nbsp;{localizedCountryName(weather.country, lang)}{" "}
+                &nbsp;{localizedCountryName(currentWeather.country, lang)}{" "}
                 {/* {city} */}
             </Typography>
             <Typography variant="body2" display="flex" alignItems="center">
