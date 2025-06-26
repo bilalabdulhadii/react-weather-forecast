@@ -18,10 +18,18 @@ export function formatDate(momentObj, lang) {
     }
 }
 
-export function formatSunriseOrSunset(unixTimestamp, lang) {
+export function formatHour(unixTimestamp, lang) {
     if (!unixTimestamp) return "";
     return moment
         .unix(unixTimestamp)
         .locale(lang)
         .format("HH:mm");
+}
+
+export function formatDay(unixTimestamp, lang) {
+    if (!unixTimestamp) return "";
+    return moment
+        .unix(unixTimestamp)
+        .locale(lang)
+        .format("dddd");
 }

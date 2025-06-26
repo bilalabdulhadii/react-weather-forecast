@@ -2,7 +2,7 @@ import { Stack, Box, Typography } from "@mui/material";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import ValueInfoRow from "./ValueInfoRow";
 import { useTranslation } from "react-i18next";
-import { formatNumber, formatSunriseOrSunset } from "../../utils/format";
+import { formatNumber, formatHour } from "../../utils/format";
 import { useLang } from "../../contexts/LangContext";
 import { useMemo } from "react";
 import { useCurrentWeather } from "../../contexts/CurrentWeatherContext";
@@ -13,12 +13,12 @@ export default function WeatherDetails() {
     const { t } = useTranslation();
 
     const formattedSunrise = useMemo(
-        () => formatSunriseOrSunset(currentWeather.sunriseRaw, lang),
+        () => formatHour(currentWeather.sunriseRaw, lang),
         [currentWeather.sunriseRaw, lang]
     );
 
     const formattedSunset = useMemo(
-        () => formatSunriseOrSunset(currentWeather.sunsetRaw, lang),
+        () => formatHour(currentWeather.sunsetRaw, lang),
         [currentWeather.sunsetRaw, lang]
     );
 

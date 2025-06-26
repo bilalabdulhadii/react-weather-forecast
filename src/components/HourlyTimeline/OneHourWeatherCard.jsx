@@ -1,22 +1,28 @@
 import { Paper, Stack, Typography } from "@mui/material";
-import { formatNumber } from "../../utils/format";
+import { formatNumber, formatHour, formatDay } from "../../utils/format";
 import { useTranslation } from "react-i18next";
 import { useLang } from "../../contexts/LangContext";
 import HourWeatherIcon from "./HourWeatherIcon";
-import moment from "moment";
+import { useMemo } from "react";
 
 export default function OneHourWeatherCard({ weather }) {
     const { lang } = useLang();
     const { t } = useTranslation();
 
-    const date = moment.unix(weather.dateRaw);
-    const hour = date.format("HH:mm");
-    const day = date.format("dddd");
+    const formattedHour = useMemo(
+        () => formatHour(weather.dateRaw, lang),
+        [weather.dateRaw, lang]
+    );
+    const formattedDay = useMemo(
+        () => formatDay(weather.dateRaw, lang),
+        [weather.dateRaw, lang]
+    );
 
     return (
         <Paper
             elevation={2}
             sx={{
+                height: "250px",
                 padding: 2,
                 opacity: 1,
                 display: "flex",
@@ -39,8 +45,8 @@ export default function OneHourWeatherCard({ weather }) {
                 textAlign="center"
             >
                 <Typography variant="h5">
-                    {hour} <br />
-                    {day}
+                    {formattedHour} <br />
+                    {formattedDay}
                 </Typography>
 
                 <HourWeatherIcon

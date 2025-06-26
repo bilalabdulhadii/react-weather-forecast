@@ -1,6 +1,6 @@
 import { Paper, CircularProgress } from "@mui/material";
 
-export default function OneHourLoadingCard({ weather }) {
+export default function OneHourLoadingCard() {
     return (
         <Paper
             elevation={2}
