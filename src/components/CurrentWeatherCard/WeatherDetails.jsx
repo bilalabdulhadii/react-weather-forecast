@@ -23,7 +23,14 @@ export default function WeatherDetails() {
     );
 
     return (
-        <Stack spacing={4}>
+        <Stack
+            spacing={4}
+            sx={{
+                height: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+            }}
+        >
             <Box>
                 <Typography
                     variant="h2"

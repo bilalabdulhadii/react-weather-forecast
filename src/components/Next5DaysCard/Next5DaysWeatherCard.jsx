@@ -1,8 +1,8 @@
 import { Paper, Stack } from "@mui/material";
 import CardHeader from "./CardHeader";
-import CardBody from "../CurrentWeatherCard/CardBody";
+import CardBody from "./CardBody";
 
-export default function OneDayCard({date}) {
+export default function Next5DaysWeatherCard() {
     return (
         <Paper
             elevation={2}
@@ -22,7 +22,7 @@ export default function OneDayCard({date}) {
                 justifyContent="center"
                 alignContent="center"
             >
-                <CardHeader date={date}/>
+                <CardHeader />
                 <hr />
                 <CardBody />
             </Stack>

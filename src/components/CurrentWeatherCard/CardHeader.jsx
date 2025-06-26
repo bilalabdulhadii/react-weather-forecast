@@ -25,7 +25,7 @@ export default function CardHeader() {
                         color: (theme) => theme.palette.primary.main,
                     }}
                 />
-                &nbsp;{localizedCountryName(currentWeather.country, lang)}{" "}
+                &nbsp;{localizedCountryName(currentWeather.country, lang)}
                 {/* {city} */}
             </Typography>
             <Typography variant="body2" display="flex" alignItems="center">

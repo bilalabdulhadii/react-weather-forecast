@@ -1,6 +1,6 @@
 import { Paper, CircularProgress } from "@mui/material";
 
-export default function CurrentLoadingCard() {
+export default function Next5DaysLoadingCard() {
     return (
         <Paper
             elevation={2}
@@ -11,7 +11,7 @@ export default function CurrentLoadingCard() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                minHeight: "350px",
+                minHeight: "450px",
             }}
         >
             <CircularProgress color="primary" size={40} />

@@ -10,6 +10,7 @@
     "sunset": "غروب الشمس",
     "date": "التاريخ",
     "change_language": "تغيير اللغة",
+    "next_5_days": "توقعات خمسة أيام",
 
     "clear sky": "سماء صافية",
     "few clouds": "غيوم قليلة",
@@ -22,7 +23,7 @@
     "mist": "ضباب",
 
     "units": {
-        "temp": "°م",
+        "temp": "°",
         "wind_speed": "م/ث",
         "humidity": "٪"
     }

@@ -15,6 +15,8 @@ import { useCurrentWeather } from "./contexts/CurrentWeatherContext.js";
 import HourlyTimelineWeatherCard from "./components/HourlyTimeline/HourlyTimelineWeatherCard.jsx";
 import { useNext5DaysWeather } from "./contexts/Next5DaysWeatherContext.js";
 import HourlyTimelineLoadingCard from "./components/HourlyTimeline/HourlyTimelineLoadingCard.jsx";
+import Next5DaysWeatherCard from "./components/Next5DaysCard/Next5DaysWeatherCard.jsx";
+import Next5DaysLoadingCard from "./components/Next5DaysCard/Next5DaysLoadingCard.jsx";
 
 function App() {
     const { setCurrentWeather } = useCurrentWeather();
@@ -193,6 +195,11 @@ function App() {
                             <HourlyTimelineLoadingCard />
                         ) : (
                             <HourlyTimelineWeatherCard />
+                        )}
+                        {loading ? (
+                            <Next5DaysLoadingCard />
+                        ) : (
+                            <Next5DaysWeatherCard />
                         )}
                     </Box>
                 </Container>

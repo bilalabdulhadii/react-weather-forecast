@@ -10,6 +10,7 @@
     "sunset": "Sunset",
     "date": "Date",
     "change_language": "Change Language",
+    "next_5_days":"5-Day Outlook",
 
     "clear sky": "Clear sky",
     "few clouds": "Few clouds",
@@ -22,7 +23,7 @@
     "mist": "Mist",
 
     "units": {
-        "temp": "°C",
+        "temp": "°",
         "wind_speed": "m/s",
         "humidity": "%"
     }
