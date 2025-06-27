@@ -16,6 +16,11 @@ export default function OneDayWeatherBox({ weather }) {
                 display: "flex",
                 alignItems: "stretch",
                 gap: 2,
+                borderRadius: (theme) => `${theme.shape.borderRadius}px`,
+                "&:hover": {
+                    backgroundColor: "action.hover",
+                    cursor: "pointer",
+                },
             }}
         >
             <DayWeatherIcon

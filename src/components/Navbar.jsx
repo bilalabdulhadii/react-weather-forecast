@@ -2,7 +2,6 @@ import { useTheme } from "@emotion/react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import LogoBlue from "../assets/logo_blue.png";
-import LogoWhite from "../assets/logo_white.png";
 import { useEffect, useState } from "react";
 import {
     AppBar,

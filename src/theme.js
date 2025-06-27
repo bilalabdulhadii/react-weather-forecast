@@ -146,7 +146,7 @@ const commonSettings = {
             },
             fontWeight: 400,
             lineHeight: 1.75,
-            textTransform: ""
+            textTransform: "",
         },
     },
     shape: {
@@ -154,7 +154,7 @@ const commonSettings = {
     },
     transitions: {
         duration: {
-            shortest: 150,
+            shortest: 200,
             shorter: 200,
             short: 250,
             standard: 300,

@@ -47,6 +47,7 @@ export default function CardBody() {
                     alignItems: "center",
                     justifyContent: "end",
                     gap: 2,
+                    marginBottom:"5px"
                 }}
             >
                 {/* <div style={{ width: "60px" }} />

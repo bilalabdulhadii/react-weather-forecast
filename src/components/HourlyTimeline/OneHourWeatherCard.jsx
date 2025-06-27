@@ -34,6 +34,9 @@ export default function OneHourWeatherCard({ weather }) {
                     md: "calc(20% - 12px)",
                     lg: "calc(20% - 12px)",
                 },
+                "&:hover": {
+                    backgroundColor: "action.hover",
+                },
             }}
         >
             <Stack
