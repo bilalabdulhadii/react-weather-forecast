@@ -22,6 +22,11 @@
     "snow": "ثلوج",
     "mist": "ضباب",
 
+    "Damascus":"دمشق",
+    "Istanbul":"إسطنبول",
+    "Berlin":"برلين",
+    "Tokyo":"طوكيو",
+
     "units": {
         "temp": "°",
         "wind_speed": "م/ث",

@@ -10,7 +10,7 @@
     "sunset": "Sunset",
     "date": "Date",
     "change_language": "Change Language",
-    "next_5_days":"5-Day Outlook",
+    "next_5_days": "5-Day Outlook",
 
     "clear sky": "Clear sky",
     "few clouds": "Few clouds",
@@ -21,6 +21,11 @@
     "thunderstorm": "Thunderstorm",
     "snow": "Snow",
     "mist": "Mist",
+
+    "Damascus": "Damascus",
+    "Istanbul": "Istanbul",
+    "Berlin": "Berlin",
+    "Tokyo": "Tokyo",
 
     "units": {
         "temp": "°",

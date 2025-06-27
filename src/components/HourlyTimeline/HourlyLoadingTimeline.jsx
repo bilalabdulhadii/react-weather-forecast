@@ -1,11 +1,8 @@
 import { Box } from "@mui/material";
-import OneHourWeatherCard from "./OneHourWeatherCard";
 import { useRef, useState } from "react";
-import { useNext5DaysWeather } from "../../contexts/Next5DaysWeatherContext";
+import OneHourLoadingCard from "./OneHourLoadingCard";
 
-export default function HourlyTimelineWeatherCard() {
-    const { next5DaysWeather } = useNext5DaysWeather();
-
+export default function HourlyLoadingTimeline() {
     const scrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -27,14 +24,6 @@ export default function HourlyTimelineWeatherCard() {
         const walk = (x - startX) * 1.5; // Speed factor
         scrollRef.current.scrollLeft = scrollLeft - walk;
     };
-    const hoursList = next5DaysWeather.map((item) => {
-        return (
-            <OneHourWeatherCard
-                key={item.id}
-                weather={item}
-            />
-        );
-    });
 
     return (
         <Box
@@ -54,10 +43,15 @@ export default function HourlyTimelineWeatherCard() {
                 "&::-webkit-scrollbar": { display: "none" },
                 scrollbarWidth: "none",
                 userSelect: "none",
-                padding: "5px 0"
+                minHeight: "240px",
+                padding: "5px 0",
             }}
         >
-            {hoursList}
+            <OneHourLoadingCard />
+            <OneHourLoadingCard />
+            <OneHourLoadingCard />
+            <OneHourLoadingCard />
+            <OneHourLoadingCard />
         </Box>
     );
 }

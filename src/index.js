@@ -7,6 +7,7 @@ import "./i18n";
 import { LangProvider } from "./contexts/LangContext";
 import { CurrentWeatherProvider } from "./contexts/CurrentWeatherContext";
 import { Next5DaysWeatherProvider } from "./contexts/Next5DaysWeatherContext";
+import { CityComparisonWeatherProvider } from "./contexts/CityComparisonWeatherContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -14,9 +15,11 @@ root.render(
     <React.StrictMode>
         <CurrentWeatherProvider>
             <Next5DaysWeatherProvider>
-                <LangProvider>
-                    <App />
-                </LangProvider>
+                <CityComparisonWeatherProvider>
+                    <LangProvider>
+                        <App />
+                    </LangProvider>
+                </CityComparisonWeatherProvider>
             </Next5DaysWeatherProvider>
         </CurrentWeatherProvider>
     </React.StrictMode>
