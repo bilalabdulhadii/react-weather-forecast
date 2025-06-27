@@ -7,7 +7,7 @@ export default function OneCityLoadingCard() {
             sx={{
                 minHeight: "250px",
                 padding: 2,
-                opacity: 1,
+                opacity: 0.5,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
