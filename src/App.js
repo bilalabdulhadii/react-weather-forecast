@@ -7,11 +7,12 @@ import axios from "axios";
 import moment from "moment";
 import "moment/locale/ar";
 import { useTranslation } from "react-i18next";
-import { useLang } from "./contexts/LangContext.js";
-import { useCurrentWeather } from "./contexts/CurrentWeatherContext.js";
-import { useNext5DaysWeather } from "./contexts/Next5DaysWeatherContext.js";
+import { useLang } from "./contexts/LangContext";
+import { useCurrentWeather } from "./contexts/CurrentWeatherContext";
+import { useNext5DaysWeather } from "./contexts/Next5DaysWeatherContext";
 import { useCityComparisonWeather } from "./contexts/CityComparisonWeatherContext.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 import MainContent from "./components/MainContent.jsx";
 
 function App() {
@@ -220,6 +221,7 @@ function App() {
                     />
                     <MainContent loading={loading} />
                 </Container>
+                <Footer />
             </Box>
         </ThemeProvider>
     );

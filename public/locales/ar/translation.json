@@ -22,14 +22,18 @@
     "snow": "ثلوج",
     "mist": "ضباب",
 
-    "Damascus":"دمشق",
-    "Istanbul":"إسطنبول",
-    "Berlin":"برلين",
-    "Tokyo":"طوكيو",
+    "Damascus": "دمشق",
+    "Istanbul": "إسطنبول",
+    "Berlin": "برلين",
+    "Tokyo": "طوكيو",
 
     "units": {
         "temp": "°",
         "wind_speed": "م/ث",
         "humidity": "٪"
-    }
+    },
+
+    "bilalabdulhadi": "بلال عبد الهادي",
+    "copyright": "حقوق الملكية",
+    "copyright_1": "تطبيق توقعات الطقس - تصميم"
 }

@@ -3,6 +3,7 @@ import moment from "moment";
 export function formatNumber(num, lang = "en") {
     return new Intl.NumberFormat(lang, {
         numberingSystem: lang === "ar" ? "arab" : "latn",
+        useGrouping: false,
     }).format(num);
 }
 

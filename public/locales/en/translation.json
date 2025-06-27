@@ -31,5 +31,9 @@
         "temp": "°",
         "wind_speed": "m/s",
         "humidity": "%"
-    }
+    },
+
+    "bilalabdulhadi": "Bilal Abdulhadi",
+    "copyright": "Copyright",
+    "copyright_1": "Weather Forecast App - Designed by"
 }
