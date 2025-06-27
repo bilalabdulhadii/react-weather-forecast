@@ -140,8 +140,6 @@ function ScrollButton({ direction, onClick }) {
                 },
             }}
         >
-            Add floating left/right buttons for hourly weather scroll 
-            Add touch swipe support for hourly weather timeline
             {isLeft ? <ChevronLeft /> : <ChevronRight />}
         </IconButton>
     );
